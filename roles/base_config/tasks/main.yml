@@ -1,6 +1,6 @@
 ---
 - name: Base Config
-  junos_template:
+  junos_config:
       provider: "{{ credential }}"
       src: "base.conf"
       update : overwrite
