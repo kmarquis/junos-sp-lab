@@ -1,0 +1,23 @@
+---
+# This is the file that will define all of the IP 
+# addressing and device interface numbering
+
+- host: 
+    name: pe2
+    loopback: 
+      ip: 192.168.0.4
+      ipv6: 2001:192:168:0::4
+      iso: 49.0001.0192.0168.0004.00
+
+- interface:
+  - name: ge-0/0/1
+    description: Link to P2
+    ip: 192.168.1.10
+    peer: 192.168.1.11
+    mask: 31
+  - name: ge-0/0/2
+    description: Link to PE1
+    ip: 192.168.1.9
+    peer: 192.168.1.8
+    mask: 31
+

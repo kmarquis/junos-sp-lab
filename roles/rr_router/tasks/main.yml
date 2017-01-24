@@ -1,0 +1,6 @@
+---
+- name: RR Config
+  junos_template:
+      provider: "{{ credential }}"
+      src: "rr_router.conf"
+      update : overwrite

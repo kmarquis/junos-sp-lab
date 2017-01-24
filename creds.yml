@@ -1,0 +1,6 @@
+---
+credential:
+  host: "{{ ansible_ssh_host }}"
+  port: "{{ ansible_ssh_port }}"
+  username: root
+  password: Juniper
