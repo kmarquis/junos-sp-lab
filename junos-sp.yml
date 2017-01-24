@@ -6,7 +6,7 @@
 
   tasks:
   - name: OBTAIN LOGIN CREDENTIALS
-    include_vars: creds.yaml
+    include_vars: creds.yml
 
 - name: Provision PE routers baseline configs
   hosts: pe_routers
