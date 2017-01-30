@@ -121,7 +121,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       "pe_routers" => ["pe1", "pe2", "pe3", "pe4"],
       "rr_router" => ["rr1"]
     }
-    ansible.playbook = "junos-sp.yml"
+    ansible.playbook = ansible.playbook = "junos-sp.yml"
+    ansible.playbook = -vvv
   end
 
 end
