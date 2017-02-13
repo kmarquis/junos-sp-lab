@@ -116,13 +116,31 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provision "ansible" do |ansible|
     ansible.groups = {
-      "base" => ["p1", "p2", "pe1", "pe2", "pe3", "pe4", "rr1"],
-      "p_routers" => ["p1", "p2"],
-      "pe_routers" => ["pe1", "pe2", "pe3", "pe4"],
-      "rr_router" => ["rr1"]
+      "base" => [
+	"p1", 
+	"p2", 
+	"pe1", 
+	"pe2", 
+	"pe3", 
+	"pe4", 
+	"rr1"
+	],
+      "p_routers" => [
+	"p1", 
+	"p2"
+	],
+      "pe_routers" => [
+	"pe1", 
+	"pe2", 
+	"pe3", 
+	"pe4"
+	],
+      "rr_router" => [
+	"rr1"
+	]
     }
-    ansible.playbook = ansible.playbook = "junos-sp.yml"
-    ansible.playbook = -vvv
+    ansible.playbook = "junos-sp.yml"
+    ansible.verbose = "vvv"
   end
 
 end

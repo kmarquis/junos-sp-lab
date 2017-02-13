@@ -4,3 +4,4 @@ credential:
   port: "{{ ansible_ssh_port }}"
   username: root
   password: Juniper
+  asn: 65000
