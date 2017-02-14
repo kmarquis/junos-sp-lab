@@ -2,7 +2,7 @@
 # This is the file that will define all of the IP 
 # addressing and device interface numbering
 
-- host: 
+host: 
     name: pe3
     loopback: 
       ip: 192.168.0.5
@@ -12,7 +12,7 @@
     asn: 65000
     pe_loopback: 192.168.0.5
 
-- interface:
+interface:
   - name: ge-0/0/1
     description: Link to P2
     ip: 192.168.1.7

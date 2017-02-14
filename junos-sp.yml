@@ -5,8 +5,8 @@
   gather_facts: no
 
   tasks:
-  - name: OBTAIN LOGIN CREDENTIALS
-    include_vars: creds.yaml
+    - name: OBTAIN LOGIN CREDENTIALS
+      include_vars: creds.yaml
 
 - name: Provision PE routers baseline configs
   hosts: pe_routers

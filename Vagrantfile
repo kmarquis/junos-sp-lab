@@ -24,30 +24,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 # on how all the vSRXs are connected. This is how the physical environment 
 # will be set up. Additionally resources are allocated to each VM 
 
-# Provder Edge 1
-  config.vm.define "pe1" do |pe1|
-    pe1.vm.network "private_network", virtualbox__intnet: "net1" # PE1 - P1
-    pe1.vm.network "private_network", virtualbox__intnet: "net2" # PE1 - PE2
-    pe1.vm.box = "juniper/ffp-12.1X47-D15.4-packetmode"
-      pe1.vm.provider :virtualbox do |vb|
-        vb.name = "PE1"
-        vb.memory = 1024
-        vb.gui = false
-      end
-  end
-
-# Provder Edge 2
-  config.vm.define "pe2" do |pe2|
-    pe2.vm.network "private_network", virtualbox__intnet: "net3" # PE2 - P2
-    pe2.vm.network "private_network", virtualbox__intnet: "net2" # PE2 - PE1
-    pe2.vm.box = "juniper/ffp-12.1X47-D15.4-packetmode"
-      pe2.vm.provider :virtualbox do |vb|
-        vb.name = "PE2"
-        vb.memory = 1024
-        vb.gui = false
-      end
-  end
-
 # Provder Router 1
   config.vm.define "p1" do |p1|
     p1.vm.network "private_network", virtualbox__intnet: "net1" # P1 - PE1
@@ -70,6 +46,30 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     p2.vm.box = "juniper/ffp-12.1X47-D15.4-packetmode"
       p2.vm.provider :virtualbox do |vb|
         vb.name = "P2"
+        vb.memory = 1024
+        vb.gui = false
+      end
+  end
+
+# Provder Edge 1
+  config.vm.define "pe1" do |pe1|
+    pe1.vm.network "private_network", virtualbox__intnet: "net1" # PE1 - P1
+    pe1.vm.network "private_network", virtualbox__intnet: "net2" # PE1 - PE2
+    pe1.vm.box = "juniper/ffp-12.1X47-D15.4-packetmode"
+      pe1.vm.provider :virtualbox do |vb|
+        vb.name = "PE1"
+        vb.memory = 1024
+        vb.gui = false
+      end
+  end
+
+# Provder Edge 2
+  config.vm.define "pe2" do |pe2|
+    pe2.vm.network "private_network", virtualbox__intnet: "net3" # PE2 - P2
+    pe2.vm.network "private_network", virtualbox__intnet: "net2" # PE2 - PE1
+    pe2.vm.box = "juniper/ffp-12.1X47-D15.4-packetmode"
+      pe2.vm.provider :virtualbox do |vb|
+        vb.name = "PE2"
         vb.memory = 1024
         vb.gui = false
       end
