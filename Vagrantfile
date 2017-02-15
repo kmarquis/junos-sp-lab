@@ -140,7 +140,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	]
     }
     ansible.playbook = "junos-sp.yml"
-    ansible.verbose = "vvv"
+#    ansible.verbose = "vvv"
   end
 
 end
