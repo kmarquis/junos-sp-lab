@@ -14,12 +14,18 @@ host:
 
 interfaces:
   - name: ge-0/0/1
-    description: Link to P2
+    description: Link to P1
     ip: 192.168.1.7
     peer: 192.168.1.6
     mask: 31
+    ipv6: 2001:192:168:1::8
+    peer: 2001:192:168:1::9
+    maskv6: 127
   - name: ge-0/0/2
     description: Link to PE4
     ip: 192.168.1.14
     peer: 192.168.1.15
     mask: 31
+    ipv6: 2001:192:168:1::15
+    peer: 2001:192:168:1::16
+    maskv6: 127

@@ -18,8 +18,14 @@ interfaces:
     ip: 192.168.1.1
     peer: 192.168.1.0
     mask: 31
+    ipv6: 2001:192:168:1::2
+    peer: 2001:192:168:1::1
+    maskv6: 127
   - name: ge-0/0/2
     description: Link to PE2
     ip: 192.168.1.8
     peer: 192.168.1.9
     mask: 31
+    ipv6: 2001:192:168:1::13
+    peer: 2001:192:168:1::14
+    maskv6: 127

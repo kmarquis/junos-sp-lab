@@ -8,14 +8,6 @@
     - name: OBTAIN LOGIN CREDENTIALS
       include_vars: creds.yaml
 
-- name: Provision PE routers baseline configs
-  hosts: pe_routers
-  connection: local
-  gather_facts: no
-  roles:
-    - base_config
-    - pe_routers
-
 - name: Provision P routers baseline configs
   hosts: p_routers
   connection: local
@@ -23,6 +15,14 @@
   roles:
     - base_config
     - p_routers
+
+- name: Provision PE routers baseline configs
+  hosts: pe_routers
+  connection: local
+  gather_facts: no
+  roles:
+    - base_config
+    - pe_routers
 
 - name: Provision RR router baseline configs
   hosts: rr_router

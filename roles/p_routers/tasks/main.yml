@@ -1,6 +1,6 @@
 ---
 - name: P Config
-  junos_config:
+  junos_template:
       provider: "{{ credential }}"
       src: "p_routers.conf"
-      update: overwrite
+      action: overwrite
