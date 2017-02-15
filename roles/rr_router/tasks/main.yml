@@ -3,4 +3,4 @@
   junos_config:
       provider: "{{ credential }}"
       src: "rr_router.conf"
-      update : overwrite
+      update: overwrite

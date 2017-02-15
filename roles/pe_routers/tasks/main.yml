@@ -3,4 +3,4 @@
   junos_config:
       provider: "{{ credential }}"
       src: "pe_routers.conf"
-      update : overwrite
+      update: overwrite

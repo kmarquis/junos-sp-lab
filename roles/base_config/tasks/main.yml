@@ -3,4 +3,4 @@
   junos_config:
       provider: "{{ credential }}"
       src: "base.conf"
-      update : overwrite
+      update: overwrite

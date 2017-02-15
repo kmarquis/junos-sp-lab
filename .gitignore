@@ -1,0 +1,9 @@
+.vagrant
+firmware
+ntc-templates
+backup
+build
+filter_plugins
+logs
+inventory
+.DS_Store
