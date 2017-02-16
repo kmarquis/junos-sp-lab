@@ -110,6 +110,46 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       end
   end  
 
+# VPLS Server 1
+    config.vm.define "vpls1" do |vpls1|
+        vpls1.vm.box = "robwc/minitrusty64"
+        vpls1.vm.hostname = "server"
+        vpls1.vm.network 'private_network', ip: "10.1.1.1", virtualbox__intnet: "net9" # VPLS1 - PE1
+        vpls1.ssh.insert_key = true
+    end
+
+# VPLS Server 2
+    config.vm.define "vpls2" do |vpls2|
+        vpls2.vm.box = "robwc/minitrusty64"
+        vpls2.vm.hostname = "server"
+        vpls2.vm.network 'private_network', ip: "10.1.1.2", virtualbox__intnet: "net10" # VPLS2 - PE2
+        vpls2.ssh.insert_key = true
+    end
+
+# VPLS Server 3
+    config.vm.define "vpls3" do |vpls3|
+        vpls3.vm.box = "robwc/minitrusty64"
+        vpls3.vm.hostname = "server"
+        vpls3.vm.network 'private_network', ip: "10.1.1.3", virtualbox__intnet: "net11" # VPLS3 - PE3
+        vpls3.ssh.insert_key = true
+    end
+
+# L2VPN Server 1
+    config.vm.define "l2pvn1" do |l2pvn1|
+        l2pvn1.vm.box = "robwc/minitrusty64"
+        l2pvn1.vm.hostname = "server"
+        l2pvn1.vm.network 'private_network', ip: "10.1.1.1", virtualbox__intnet: "net12" # L2PVN1 - PE1
+        l2pvn1.ssh.insert_key = true
+    end
+
+# L2VPN Server 2
+    config.vm.define "l2pvn2" do |l2pvn2|
+        l2pvn2.vm.box = "robwc/minitrusty64"
+        l2pvn2.vm.hostname = "server"
+        l2pvn2.vm.network 'private_network', ip: "10.1.1.2", virtualbox__intnet: "net13" # L2PVN2 - PE3
+        l2pvn2.ssh.insert_key = true
+    end
+
 # This is where the Ansible Groups and Playbook will be defined so when the
 # the topology is built configuration will be automated and each vSRX will 
 # havre the correct base confirguration
