@@ -31,3 +31,10 @@
   roles:
     - base_config
     - rr_router
+
+- name: Provision CE routers baseline configs
+  hosts: ce_routers
+  connection: local
+  gather_facts: no
+  roles:
+    - ce_routers

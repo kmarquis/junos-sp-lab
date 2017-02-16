@@ -55,6 +55,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.define "pe1" do |pe1|
     pe1.vm.network "private_network", virtualbox__intnet: "net1" # PE1 - P1
     pe1.vm.network "private_network", virtualbox__intnet: "net2" # PE1 - PE2
+    pe1.vm.network "private_network", virtualbox__intnet: "net9" # PE1 - VPLS1    
+    pe1.vm.network "private_network", virtualbox__intnet: "net12" # PE1 - L2VPN1
     pe1.vm.box = "juniper/ffp-12.1X47-D15.4-packetmode"
       pe1.vm.provider :virtualbox do |vb|
         vb.name = "PE1"
@@ -67,6 +69,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.define "pe2" do |pe2|
     pe2.vm.network "private_network", virtualbox__intnet: "net3" # PE2 - P2
     pe2.vm.network "private_network", virtualbox__intnet: "net2" # PE2 - PE1
+    pe2.vm.network "private_network", virtualbox__intnet: "net10" # PE2 - VPLS2
+    pe2.vm.network "private_network", virtualbox__intnet: "net14" # PE2 - CE1 
     pe2.vm.box = "juniper/ffp-12.1X47-D15.4-packetmode"
       pe2.vm.provider :virtualbox do |vb|
         vb.name = "PE2"
@@ -79,6 +83,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.define "pe3" do |pe3|
     pe3.vm.network "private_network", virtualbox__intnet: "net6" # PE3 - P1
     pe3.vm.network "private_network", virtualbox__intnet: "net8" # PE3 - PE4
+    pe3.vm.network "private_network", virtualbox__intnet: "net11" # PE3 - VPLS3    
+    pe3.vm.network "private_network", virtualbox__intnet: "net13" # PE3 - L2VPN2
     pe3.vm.box = "juniper/ffp-12.1X47-D15.4-packetmode"
       pe3.vm.provider :virtualbox do |vb|
         vb.name = "PE3"
@@ -91,6 +97,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.define "pe4" do |pe4|
     pe4.vm.network "private_network", virtualbox__intnet: "net7" # PE4 - P2
     pe4.vm.network "private_network", virtualbox__intnet: "net8" # PE4 - PE3
+    pe4.vm.network "private_network", virtualbox__intnet: "net9" # PE4 - VPLS1    
+    pe4.vm.network "private_network", virtualbox__intnet: "net14" # PE4 - CE2
     pe4.vm.box = "juniper/ffp-12.1X47-D15.4-packetmode"
       pe4.vm.provider :virtualbox do |vb|
         vb.name = "PE4"
@@ -108,7 +116,30 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         vb.memory = 512
         vb.gui = false
       end
-  end  
+  end
+  
+# Customer Edge 1
+  config.vm.define "ce1" do |ce1|
+    ce1.vm.network "private_network", virtualbox__intnet: "net14" # CE1 - PE2
+    ce1.vm.box = "juniper/ffp-12.1X47-D15.4-packetmode"
+      ce1.vm.provider :virtualbox do |vb|
+        vb.name = "CE1"
+        vb.memory = 512
+        vb.gui = false
+      end
+  end
+
+
+# Customer Edge 2
+  config.vm.define "ce2" do |ce2|
+    ce2.vm.network "private_network", virtualbox__intnet: "net15" # CE2 - PE4
+    ce2.vm.box = "juniper/ffp-12.1X47-D15.4-packetmode"
+      ce2.vm.provider :virtualbox do |vb|
+        vb.name = "CE2"
+        vb.memory = 512
+        vb.gui = false
+      end
+  end
 
 # VPLS Server 1
     config.vm.define "vpls1" do |vpls1|
@@ -177,10 +208,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	],
       "rr_router" => [
 	"rr1"
-	]
+	],
+      "ce_routers" => [
+        "ce1",
+        "ce2"
+        ]
     }
     ansible.playbook = "junos-sp.yml"
-#    ansible.verbose = "vvv"
+    ansible.verbose = "vvv"
   end
 
 end

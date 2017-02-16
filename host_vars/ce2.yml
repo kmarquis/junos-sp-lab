@@ -1,0 +1,19 @@
+---
+# This is the file that will define all of the IP 
+# addressing and device interface numbering
+
+host: 
+    name: ce2
+    loopback: 
+      ip: 172.168.0.2
+      ipv6: 2001:172:168:0::2
+
+interfaces:
+  - name: ge-0/0/1
+    description: Link to PE4
+    ip: 172.168.1.3
+    peer: 172.168.1.2
+    mask: 31
+    ipv6: 2001:172:168:1::5
+    peer: 2001:172:168:1::4
+    maskv6: 127

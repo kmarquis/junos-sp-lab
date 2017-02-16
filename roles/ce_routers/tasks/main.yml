@@ -1,0 +1,6 @@
+---
+- name: Customer Edge Config
+  junos_template:
+      provider: "{{ credential }}"
+      src: "ce_routers.conf"
+      action: overwrite
