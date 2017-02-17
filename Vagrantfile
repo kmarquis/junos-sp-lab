@@ -97,7 +97,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.define "pe4" do |pe4|
     pe4.vm.network "private_network", virtualbox__intnet: "net7" # PE4 - P2
     pe4.vm.network "private_network", virtualbox__intnet: "net8" # PE4 - PE3
-    pe4.vm.network "private_network", virtualbox__intnet: "net9" # PE4 - VPLS1    
     pe4.vm.network "private_network", virtualbox__intnet: "net15" # PE4 - CE2
     pe4.vm.box = "juniper/ffp-12.1X47-D15.4-packetmode"
       pe4.vm.provider :virtualbox do |vb|
