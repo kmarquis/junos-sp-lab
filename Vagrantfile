@@ -41,7 +41,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 # Provder Router 2
   config.vm.define "p2" do |p2|
     p2.vm.network "private_network", virtualbox__intnet: "net5" # P2 - P1
-    p2.vm.network "private_network", virtualbox__intnet: "net2" # P2 - PE2
+    p2.vm.network "private_network", virtualbox__intnet: "net3" # P2 - PE2
     p2.vm.network "private_network", virtualbox__intnet: "net7" # P2 - PE4
     p2.vm.box = "juniper/ffp-12.1X47-D15.4-packetmode"
       p2.vm.provider :virtualbox do |vb|
