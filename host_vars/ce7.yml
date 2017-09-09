@@ -1,0 +1,26 @@
+---
+# This is the file that will define all of the IP 
+# addressing and device interface numbering
+
+host: 
+    name: ce7
+    loopback: 
+      ip: 192.168.70.255
+
+interfaces:
+  - name: ge-0/0/1
+    description: LINK to PE4
+    ip: 192.168.100.7
+    mask: 24
+  - name: ge-0/0/2
+    description: Link to EH6
+    ip: 192.168.70.1
+    mask: 26
+  - name: ge-0/0/3
+    description: Link to EH7
+    ip: 192.168.70.65
+    mask: 26 
+  - name: ge-0/0/3
+    description: Link to EH7
+    ip: 192.168.70.129
+    mask: 26 
