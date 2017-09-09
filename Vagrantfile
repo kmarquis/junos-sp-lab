@@ -122,7 +122,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.define "ansible" do |ansible|
         ansible.vm.box = "ubuntu/xenial64"
         ansible.vm.hostname = "ansible"
-        ansible.vm.network 'private_network', ip: "192.168.1.20", virtualbox__intnet: "net28" # Ansible - RR1
+        ansible.vm.network 'private_network', ip: "192.168.1.20", :netmask => "255.255.255.254", virtualbox__intnet: "net28" # Ansible - RR1
         ansible.ssh.insert_key = true
           ansible.vm.provider :virtualbox do |vb|
             vb.name = "ansible"
