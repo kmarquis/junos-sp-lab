@@ -20,7 +20,7 @@ interfaces:
     description: Link to EH7
     ip: 192.168.70.65
     mask: 26 
-  - name: ge-0/0/3
+  - name: ge-0/0/4
     description: Link to EH7
     ip: 192.168.70.129
     mask: 26 
