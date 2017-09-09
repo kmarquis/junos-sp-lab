@@ -118,27 +118,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       end
   end
 
-# Ansible / Naplam Host
-    config.vm.define "ansible" do |ansible|
-        ansible.vm.box = "ubuntu/xenial64"
-        ansible.vm.hostname = "ansible"
-        ansible.vm.network 'private_network', ip: "192.168.1.20", :netmask => "255.255.255.254", virtualbox__intnet: "net28" # Ansible - RR1
-        ansible.ssh.insert_key = true
-          ansible.vm.provider :virtualbox do |vb|
-            vb.name = "ansible"
-            vb.memory = 512
-            vb.gui = false
-          end
-        ansible.vm.provision "shell", inline: <<-SHELL
-            sudo ip route add 192.168.0.0/16 via 192.168.1.1 dev enp0s8
-            sudo apt-get update && sudo apt-get upgrade -y
-            sudo apt-get install build-essential libssl-dev libffi-dev python-dev libxml2-dev libxslt-dev python-pip python-dev -y
-            sudo pip install --upgrade pip
-            sudo pip install setuptools --upgrade
-            sudo pip install junos-eznc napalm ansible napalm-ansible
-          SHELL
-        end   
-
 # Customer Edge 1
   config.vm.define "ce1" do |ce1|
     ce1.vm.network "private_network", virtualbox__intnet: "net9" # CE1 - PE2
@@ -435,6 +414,27 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
             sudo apt-get install lldpd iperf mtr -y
           SHELL
     end
+
+# Ansible / Naplam Host
+    config.vm.define "ansible" do |ansible|
+        ansible.vm.box = "ubuntu/xenial64"
+        ansible.vm.hostname = "ansible"
+        ansible.vm.network 'private_network', ip: "192.168.1.20", :netmask => "255.255.255.254", virtualbox__intnet: "net28" # Ansible - RR1
+        ansible.ssh.insert_key = true
+          ansible.vm.provider :virtualbox do |vb|
+            vb.name = "ansible"
+            vb.memory = 512
+            vb.gui = false
+          end
+        ansible.vm.provision "shell", inline: <<-SHELL
+            sudo ip route add 192.168.0.0/16 via 192.168.1.21 dev enp0s8
+            sudo apt-get update && sudo apt-get upgrade -y
+            sudo apt-get install -y build-essential libssl-dev libffi-dev python-dev libxml2-dev libxslt-dev python-pip python-dev
+            sudo pip install --upgrade pip
+            sudo pip install setuptools --upgrade
+            sudo pip install junos-eznc napalm ansible napalm-ansible
+          SHELL
+        end  
 
 # This is where the Ansible Groups and Playbook will be defined so when the
 # the topology is built configuration will be automated and each vSRX will 
