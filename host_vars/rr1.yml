@@ -25,8 +25,7 @@ interfaces:
     maskv6: 127
   - name: ge-0/0/2
     description: Link to Ansible Host
-    ip: 192.168.1.21
-    peer: 192.168.1.20
+    ip: 192.168.1.50
     mask: 31
-    ipv6: 2001:192:168:1::21
+    ipv6: 2001:192:168:1::50
     maskv6: 127    
