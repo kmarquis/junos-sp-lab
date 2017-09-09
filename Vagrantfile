@@ -236,7 +236,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.define "eh1" do |eh1|
         eh1.vm.box = "ubuntu/trusty64"
         eh1.vm.hostname = "server1"
-        eh1.vm.network 'private_network', ip: "192.168.10.20", virtualbox__intnet: "net10" # EH1 - CE1
+        eh1.vm.network 'private_network', ip: "192.168.10.20", :netmask => "255.255.255.128", virtualbox__intnet: "net10" # EH1 - CE1
         eh1.ssh.insert_key = true
           eh1.vm.provider :virtualbox do |vb|
             vb.name = "eh1"
@@ -253,7 +253,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.define "eh2" do |eh2|
         eh2.vm.box = "ubuntu/trusty64"
         eh2.vm.hostname = "eh2"
-        eh2.vm.network 'private_network', ip: "192.168.10.140", virtualbox__intnet: "net11" # EH2 - CE1
+        eh2.vm.network 'private_network', ip: "192.168.10.140", :netmask => "255.255.255.128",virtualbox__intnet: "net11" # EH2 - CE1
         eh2.ssh.insert_key = true
           eh2.vm.provider :virtualbox do |vb|
             vb.name = "eh2"
@@ -321,7 +321,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.define "eh6" do |eh6|
         eh6.vm.box = "ubuntu/trusty64"
         eh6.vm.hostname = "eh6"
-        eh6.vm.network 'private_network', ip: "192.168.50.20", virtualbox__intnet: "net19" # EH6 - CE5
+        eh6.vm.network 'private_network', ip: "192.168.50.20", :netmask => "255.255.255.128", virtualbox__intnet: "net19" # EH6 - CE5
         eh6.ssh.insert_key = true
           eh6.vm.provider :virtualbox do |vb|
             vb.name = "eh6"
@@ -338,7 +338,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.define "eh7" do |eh7|
         eh7.vm.box = "ubuntu/trusty64"
         eh7.vm.hostname = "eh7"
-        eh7.vm.network 'private_network', ip: "192.168.50.140", virtualbox__intnet: "net20" # EH7 - CE5
+        eh7.vm.network 'private_network', ip: "192.168.50.140", :netmask => "255.255.255.128", virtualbox__intnet: "net20" # EH7 - CE5
         eh7.ssh.insert_key = true
           eh7.vm.provider :virtualbox do |vb|
             vb.name = "eh7"
@@ -355,7 +355,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.define "eh8" do |eh8|
         eh8.vm.box = "ubuntu/trusty64"
         eh8.vm.hostname = "eh8"
-        eh8.vm.network 'private_network', ip: "192.168.60.20", virtualbox__intnet: "net23" # EH8 - CE6
+        eh8.vm.network 'private_network', ip: "192.168.60.20", :netmask => "255.255.255.128", virtualbox__intnet: "net23" # EH8 - CE6
         eh8.ssh.insert_key = true
           eh8.vm.provider :virtualbox do |vb|
             vb.name = "eh8"
@@ -372,7 +372,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.define "eh9" do |eh9|
         eh9.vm.box = "ubuntu/trusty64"
         eh9.vm.hostname = "eh9"
-        eh9.vm.network 'private_network', ip: "192.168.60.140", virtualbox__intnet: "net24" # EH9 - CE6
+        eh9.vm.network 'private_network', ip: "192.168.60.140", :netmask => "255.255.255.128", virtualbox__intnet: "net24" # EH9 - CE6
         eh9.ssh.insert_key = true
           eh9.vm.provider :virtualbox do |vb|
             vb.name = "eh9"
@@ -389,7 +389,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.define "eh10" do |eh10|
         eh10.vm.box = "ubuntu/trusty64"
         eh10.vm.hostname = "eh10"
-        eh10.vm.network 'private_network', ip: "192.168.70.20", virtualbox__intnet: "net25" # E10 - CE7
+        eh10.vm.network 'private_network', ip: "192.168.70.20", :netmask => "255.255.255.192", virtualbox__intnet: "net25" # E10 - CE7
         eh10.ssh.insert_key = true
           eh10.vm.provider :virtualbox do |vb|
             vb.name = "eh10"
@@ -406,7 +406,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.define "eh11" do |eh11|
         eh11.vm.box = "ubuntu/trusty64"
         eh11.vm.hostname = "eh11"
-        eh11.vm.network 'private_network', ip: "192.168.70.120", virtualbox__intnet: "net26" # E11 - CE7
+        eh11.vm.network 'private_network', ip: "192.168.70.120", :netmask => "255.255.255.192", virtualbox__intnet: "net26" # E11 - CE7
         eh11.ssh.insert_key = true
           eh11.vm.provider :virtualbox do |vb|
             vb.name = "eh11"
@@ -423,7 +423,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.define "eh12" do |eh12|
         eh12.vm.box = "ubuntu/trusty64"
         eh12.vm.hostname = "eh12"
-        eh12.vm.network 'private_network', ip: "192.168.70.160", virtualbox__intnet: "net27" # E12 - CE7
+        eh12.vm.network 'private_network', ip: "192.168.70.160", :netmask => "255.255.255.192", virtualbox__intnet: "net27" # E12 - CE7
         eh12.ssh.insert_key = true
           eh12.vm.provider :virtualbox do |vb|
             vb.name = "eh12"
