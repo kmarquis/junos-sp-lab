@@ -214,7 +214,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 # Server 1 
     config.vm.define "eh1" do |eh1|
         eh1.vm.box = "ubuntu/trusty64"
-        eh1.vm.hostname = "server1"
+        eh1.vm.hostname = "eh1"
         eh1.vm.network 'private_network', ip: "192.168.10.20", :netmask => "255.255.255.128", virtualbox__intnet: "net10" # EH1 - CE1
         eh1.ssh.insert_key = true
           eh1.vm.provider :virtualbox do |vb|
@@ -224,6 +224,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
           end
         eh1.vm.provision "shell", inline: <<-SHELL
 	          sudo ip route add 192.168.0.0/16 via 192.168.10.1 dev eth1
+            sudo ip route add 224.0.0.0/4 dev eth1
             sudo apt-get install lldpd iperf mtr -y
           SHELL
     end
@@ -241,6 +242,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
           end
         eh2.vm.provision "shell", inline: <<-SHELL
             sudo ip route add 192.168.0.0/16 via 192.168.10.129 dev eth1
+            sudo ip route add 224.0.0.0/4 dev eth1
             sudo apt-get install lldpd iperf mtr -y
           SHELL
     end
@@ -258,6 +260,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
           end
         eh3.vm.provision "shell", inline: <<-SHELL
             sudo ip route add 192.168.0.0/16 via 192.168.20.1 dev eth1
+            sudo ip route add 224.0.0.0/4 dev eth1
             sudo apt-get install lldpd iperf mtr -y
           SHELL
     end
@@ -275,6 +278,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
           end
         eh4.vm.provision "shell", inline: <<-SHELL
             sudo ip route add 192.168.0.0/16 via 192.168.30.1 dev eth1
+            sudo ip route add 224.0.0.0/4 dev eth1
             sudo apt-get install lldpd iperf mtr -y
           SHELL
     end
@@ -292,6 +296,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
           end
         eh5.vm.provision "shell", inline: <<-SHELL
             sudo ip route add 192.168.0.0/16 via 192.168.40.1 dev eth1
+            sudo ip route add 224.0.0.0/4 dev eth1
             sudo apt-get install lldpd iperf mtr -y
           SHELL
     end
@@ -309,6 +314,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
           end
         eh6.vm.provision "shell", inline: <<-SHELL
             sudo ip route add 192.168.0.0/16 via 192.168.50.1 dev eth1
+            sudo ip route add 224.0.0.0/4 dev eth1
             sudo apt-get install lldpd iperf mtr -y
           SHELL
     end
@@ -326,6 +332,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
           end
         eh7.vm.provision "shell", inline: <<-SHELL
             sudo ip route add 192.168.0.0/16 via 192.168.50.129 dev eth1
+            sudo ip route add 224.0.0.0/4 dev eth1
             sudo apt-get install lldpd iperf mtr -y
           SHELL
     end
@@ -343,6 +350,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
           end
         eh8.vm.provision "shell", inline: <<-SHELL
             sudo ip route add 192.168.0.0/16 via 192.168.60.1 dev eth1
+            sudo ip route add 224.0.0.0/4 dev eth1
             sudo apt-get install lldpd iperf mtr -y
           SHELL
     end
@@ -360,6 +368,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
           end
         eh9.vm.provision "shell", inline: <<-SHELL
             sudo ip route add 192.168.0.0/16 via 192.168.60.129 dev eth1
+            sudo ip route add 224.0.0.0/4 dev eth1
             sudo apt-get install lldpd iperf mtr -y
           SHELL
     end
@@ -377,6 +386,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
           end
         eh10.vm.provision "shell", inline: <<-SHELL
             sudo ip route add 192.168.0.0/16 via 192.168.70.1 dev eth1
+            sudo ip route add 224.0.0.0/4 dev eth1
             sudo apt-get install lldpd iperf mtr -y
           SHELL
     end
@@ -394,6 +404,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
           end
         eh11.vm.provision "shell", inline: <<-SHELL
             sudo ip route add 192.168.0.0/16 via 192.168.70.65 dev eth1
+            sudo ip route add 224.0.0.0/4 dev eth1
             sudo apt-get install lldpd iperf mtr -y
           SHELL
     end
@@ -411,6 +422,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
           end
         eh12.vm.provision "shell", inline: <<-SHELL
             sudo ip route add 192.168.0.0/16 via 192.168.70.129 dev eth1
+            sudo ip route add 224.0.0.0/4 dev eth1
             sudo apt-get install lldpd iperf mtr -y
           SHELL
     end
