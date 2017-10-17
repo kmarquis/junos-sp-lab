@@ -2,6 +2,9 @@
 
 This is topology that can be used for Juniper Service Provider studies
 
+## Juniper Service Provider Virtual Lab Topology Diagram
+![Alt text](http://marquis.co/stuff/Junos_SP_Lab.png?raw=true "Juniper Service Provider Virtual Lab")
+
 ## To create this Lab
 You have the following installed:
 * VirtualBox 4.3.36
