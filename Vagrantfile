@@ -416,17 +416,17 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
 
 # Ansible / Naplam Host
-    config.vm.define "napalm" do |napalm|
-        napalm.vm.box = "ubuntu/xenial64"
-        napalm.vm.hostname = "napalm"
-        napalm.vm.network 'private_network', ip: "192.168.1.51", :netmask => "255.255.255.254", virtualbox__intnet: "net28" # Ansible - RR1
-        napalm.ssh.insert_key = true
-          ansible.vm.provider :virtualbox do |vb|
-            vb.name = "ansible"
+    config.vm.define "naplam" do |naplam|
+        naplam.vm.box = "ubuntu/xenial64"
+        naplam.vm.hostname = "ansible"
+        naplam.vm.network 'private_network', ip: "192.168.1.51", :netmask => "255.255.255.254", virtualbox__intnet: "net28" # Ansible - RR1
+        naplam.ssh.insert_key = true
+          naplam.vm.provider :virtualbox do |vb|
+            vb.name = "naplam"
             vb.memory = 512
             vb.gui = false
           end
-        napalm.vm.provision "shell", inline: <<-SHELL
+        naplam.vm.provision "shell", inline: <<-SHELL
             sudo ip route add 192.168.0.0/16 via 192.168.1.50 dev enp0s8
             sudo apt-get update && sudo apt-get upgrade -y
             sudo apt-get install -y build-essential libssl-dev libffi-dev python-dev libxml2-dev libxslt-dev python-pip python-dev
