@@ -1,13 +1,4 @@
 ---
-- name: Provision baseline configs
-  hosts: all
-  connection: local
-  gather_facts: no
-
-  tasks:
-    - name: OBTAIN LOGIN CREDENTIALS
-      include_vars: creds.yaml
-
 - name: Provision P routers baseline configs
   hosts: p_routers
   connection: local

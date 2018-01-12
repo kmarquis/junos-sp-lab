@@ -1,6 +1,6 @@
 ---
 - name: RR Config
-  junos_template:
+  junos_config:
       provider: "{{ credential }}"
       src: "rr_router.conf"
-      action: overwrite
+      update: merge

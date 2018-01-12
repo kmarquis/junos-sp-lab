@@ -1,6 +1,6 @@
 ---
 - name: Customer Edge Config
-  junos_template:
+  junos_config:
       provider: "{{ credential }}"
       src: "ce_routers.conf"
-      action: overwrite
+      update: merge
