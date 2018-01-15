@@ -2,13 +2,15 @@
 
 This is topology that can be used for Juniper Service Provider studies
 
+You will need at least 16GB RAM to run the full topology
+
 ## Juniper Service Provider Virtual Lab Topology Diagram
 ![Alt text](http://marquis.co/stuff/Junos_SP_Lab.png?raw=true "Juniper Service Provider Virtual Lab")
 
 ## To create this Lab
-You have the following installed:
-* VirtualBox 4.3.36
-* Ansible 2.2.1.0
+You have the following or higher versions need to be  installed:
+* VirtualBox 4.3.36 
+* Ansible 2.3.0
 * Vagrant 1.9.1
 
 ## To work with this lab
