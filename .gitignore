@@ -8,3 +8,4 @@ logs
 junos-sp.retry
 inventory
 .DS_Store
+venv
